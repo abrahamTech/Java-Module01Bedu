@@ -1,4 +1,4 @@
-package org.bedu.java.jse.basico;
+package Session04.Postwork.postwork.src.org.bedu.java.jse.basico;
 
 public class ListasTareas {
     public void crearNuevaLista(){

@@ -6,10 +6,6 @@ import org.bedu.java.jse.basico.sesion3.reto2.Vehiculo;
 
 public class Agency {
 
-    
-
-    public void setFuel() {
-
         Scanner scanner = new Scanner(System.in);
 
         int option;
@@ -34,7 +30,7 @@ public class Agency {
                 }
 
                 break;
-                
+
             case 2: 
                 
                 vehicle.getFuelStation();
@@ -50,7 +46,5 @@ public class Agency {
             default:
                 break;
         }
-    }
-
 
 }

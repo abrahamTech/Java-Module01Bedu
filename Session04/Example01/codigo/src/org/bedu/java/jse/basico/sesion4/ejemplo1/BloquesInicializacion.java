@@ -1,4 +1,4 @@
-package org.bedu.java.jse.basico.sesion4.ejemplo1;
+package Session04.Example01.codigo.src.org.bedu.java.jse.basico.sesion4.ejemplo1;
 
 public class BloquesInicializacion {
     public static void main(String[] args) {
