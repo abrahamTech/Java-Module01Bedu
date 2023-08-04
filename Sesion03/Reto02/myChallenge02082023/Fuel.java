@@ -29,10 +29,10 @@ public class Fuel {
     public void usingFuel() {
         currentLiters--;
 
-        System.out.println(currentLiters + " liters left");
+        System.out.println("\n" + currentLiters + " liters left\n");
 
         if(currentLiters <= 0) {
-            System.out.println("Out of fuel, go to the gas station");
+            System.out.println("\n\nOut of fuel, go to the gas station\n\n");
         }
     }
 }
