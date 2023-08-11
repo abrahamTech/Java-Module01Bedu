@@ -7,6 +7,25 @@ public class Person {
     private byte age;
     private final LocalDate BIRTHDATE;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public byte getAge() {
+        return age;
+    }
+
+    public void setAge(byte age) {
+        this.age = age;
+    }
+
+    public LocalDate getBIRTHDATE() {
+        return BIRTHDATE;
+    }
 
     public Person(String name, byte age, LocalDate birthdate) {
         this.name = name;
