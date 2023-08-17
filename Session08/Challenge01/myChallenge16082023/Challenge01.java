@@ -13,6 +13,7 @@ public class Challenge01 {
     private static void placeSpaces(String fatherDirectory, char simbol){
         System.out.print("[" + simbol + "]");
 
+        //I write "-100" because the fatherDirectory is very large, so with this they will get less "-"
         for (int i = 0; i < fatherDirectory.length() - 100; i++) {
             System.out.print("-");
         }
