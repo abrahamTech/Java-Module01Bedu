@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="e2.CalculatorE2Test" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-09-07T03:35:30" hostname="DESKTOP-15T62O7" time="2.415">
+  <properties/>
+  <testcase name="Substract Test" classname="e2.CalculatorE2Test" time="2.33"/>
+  <testcase name="Add Test" classname="e2.CalculatorE2Test" time="0.034"/>
+  <testcase name="Multiply Test" classname="e2.CalculatorE2Test" time="0.028"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
