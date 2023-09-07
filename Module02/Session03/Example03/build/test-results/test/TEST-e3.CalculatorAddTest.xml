@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="e3.CalculatorAddTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-09-07T04:51:24" hostname="DESKTOP-15T62O7" time="0.043">
+  <properties/>
+  <testcase name="Add Test" classname="e3.CalculatorAddTest" time="0.043"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
