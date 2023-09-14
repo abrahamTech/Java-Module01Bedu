@@ -1,6 +1,7 @@
 package com.abraham.java.backend.Session05;
 
 import com.abraham.java.backend.Session05.e1.models.Greeting;
+import com.abraham.java.backend.Session05.e2.services.GreetingService;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,8 +15,9 @@ public class Session05Application implements CommandLineRunner {
 		SpringApplication.run(Session05Application.class, args);
 	}
 
+	/*
 	// --------------------------------------- E1 ---------------------------------------
-
+	
 	/* Form 1
 	@Autowired //Do the Injection
 	//Change the access level from private to public to assign the instance and then return from public to private
@@ -23,6 +25,7 @@ public class Session05Application implements CommandLineRunner {
 	private Greeting greeting;*/
 
 
+	/*
 	//Form 2
 	private Greeting greeting;
 
@@ -33,6 +36,7 @@ public class Session05Application implements CommandLineRunner {
 	public Session05Application(Greeting greeting) {
 		this.greeting = greeting;
 	}
+	*/
 
 	/*//Form 3
 	private Greeting greeting;
@@ -45,9 +49,25 @@ public class Session05Application implements CommandLineRunner {
 	}
 	*/
 
+	/* 
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println(greeting.getName());
+	}
+	*/
+
+
+	// --------------------------------------- E2 ---------------------------------------
+
+	private final GreetingService greetingService;
+
+	public Session05Application(GreetingService greetingService) {
+		this.greetingService = greetingService;
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println(greetingService.greet());
 	}
 
 }
