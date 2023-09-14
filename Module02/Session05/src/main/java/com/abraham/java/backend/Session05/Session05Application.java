@@ -2,6 +2,7 @@ package com.abraham.java.backend.Session05;
 
 import com.abraham.java.backend.Session05.e1.models.Greeting;
 import com.abraham.java.backend.Session05.e2.services.GreetingService;
+import com.abraham.java.backend.Session05.e3.services.GreetingServiceE3;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -59,7 +60,7 @@ public class Session05Application implements CommandLineRunner {
 
 	// --------------------------------------- E2 ---------------------------------------
 
-	private final GreetingService greetingService;
+	/*private final GreetingService greetingService;
 
 	public Session05Application(GreetingService greetingService) {
 		this.greetingService = greetingService;
@@ -69,5 +70,21 @@ public class Session05Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println(greetingService.greet());
 	}
+	*/
+
+	// --------------------------------------- E3 ---------------------------------------
+
+	private final GreetingServiceE3 greetingServiceE3;
+
+	@Autowired
+	public Session05Application(GreetingServiceE3 greetingServiceE3) {
+		this.greetingServiceE3 = greetingServiceE3;
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println(greetingServiceE3.greet());
+	}
+
 
 }
