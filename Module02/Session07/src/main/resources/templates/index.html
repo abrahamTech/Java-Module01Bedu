@@ -1,0 +1,36 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Register</title>
+</head>
+<body>
+<!--Expresiones variables: ${...}
+Expresiones de variables de selección: *{...}
+Expresiones de mensaje: #{...}
+Expresiones de URL de enlace: @{...}
+Expresiones de fragmentos: ~{...}-->
+    <form th:action="@{/register}" th:object="${user}" method="post">
+        <div>
+            <label for="name">Name: </label>
+            <input id="name" type="text" th:field="*{name}">
+        </div>
+        <div>
+            <label for="user">User: </label>
+            <input id="user" type="text" th:field="*{user}">
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input id="password" type="password" th:field="*{password}">
+        </div>
+        <div>
+            <label for="rol">Rol: </label>
+            <select name="rol" id="rol" th:field="*{rol}">
+                <option value="admin">Administrator</option>
+                <option value="client">Client</option>
+            </select>
+        </div>
+
+        <input type="submit" th:value="Save">
+    </form>
+</body>
+</html>
