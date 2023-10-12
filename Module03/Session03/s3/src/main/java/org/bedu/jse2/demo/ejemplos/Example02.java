@@ -14,4 +14,14 @@ public class Example02 {
         }
         return list;
     }
+
+    Integer transformAndAdd(Iterable<Integer> set, Function<Integer, Integer> function){
+        Integer accumulator = 0;
+
+        for(Integer value: set){
+            accumulator += function.apply(value);
+        }
+
+        return accumulator;
+    }
 }

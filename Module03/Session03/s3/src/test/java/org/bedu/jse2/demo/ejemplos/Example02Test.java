@@ -30,4 +30,16 @@ class Example02Test {
         assertThat(real).containsExactly(1, 16, 36, 4, 25, 81);
     }
 
+    @Test
+    @DisplayName("Transform and add")
+    void challenge(){
+        Example02 example02 = new Example02();
+
+        Integer real = example02.transformAndAdd(SET, s -> 1);
+        //Integer real = example02.transformAndAdd(SET, s -> s);
+
+        assertThat(real).isEqualTo(SET.size());
+        assertThat(real).isEqualTo(17);
+    }
+
 }
