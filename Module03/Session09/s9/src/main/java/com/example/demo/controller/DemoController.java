@@ -39,6 +39,7 @@ public class DemoController {
                 .switchIfEmpty(empleadoRepository.save(empleado));
     }
 
+    //Metodo para actualizar usuarios
     @PutMapping("/{id}")
     public Mono<Empleado> actualizar(@PathVariable String id, @RequestBody Empleado empleado){
         return empleadoRepository.findById(id)
@@ -50,4 +51,12 @@ public class DemoController {
                 .flatMap(empleadoRepository::save);
     }
 
+    //Metodo para eliminar usuarios
+    @DeleteMapping("/{id}")
+    public Mono<Void> eliminar(@PathVariable String id){
+        return empleadoRepository.findById(id)
+                .switchIfEmpty(Mono.error(new Exception("El empleado no existe")))
+                .flatMap(empleadoRepository::delete);
+    }
+    
 }
