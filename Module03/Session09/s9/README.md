@@ -110,3 +110,20 @@ Si no existe el usuario con el **ID** que se ingreso para ELIMINAR
   "requestId": "25136f11"
 }
 ```
+### Registrar Entrada Usuario
+
+- Registrar Entrada Usuario:
+
+Metodo POST:
+`http://localhost:8080/empleados/checador`
+
+- Body:
+```bash
+{
+  "empleado": {
+    "id": 1,
+    "nombre": "John"
+  },
+  "esEntrada": true
+}
+```
