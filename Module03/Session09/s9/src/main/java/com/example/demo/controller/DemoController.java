@@ -72,4 +72,10 @@ public class DemoController {
                 .flatMap(checadorRepository::save);
     }
 
+    //Filter to see the employees that enter or exit
+    @GetMapping("/checador/{empleadoId}/{esEntrada}")
+    public Flux<Checador> getRegistrosById(@PathVariable String empleadoId, @PathVariable boolean esEntrada){
+        return checadorRepository.findByEmpleado(empleadoId, esEntrada);
+    }
+
 }

@@ -127,3 +127,23 @@ Metodo POST:
   "esEntrada": true
 }
 ```
+
+### Filtrar por Entrada o Salida de Usuario
+
+Valores de Entrada y Salida en la URL
+Entrada: 1
+Salida: 0
+
+```bash
+http://localhost:8080/empleados/checador/{empleadoId}/{esEntrada}
+```
+
+- Filtrar SALIDA de Usuario 1:
+
+Metodo GET:
+`http://localhost:8080/empleados/checador/1/0`
+
+- Filtrar ENTRADA de Usuario 1:
+
+Metodo GET:
+`http://localhost:8080/empleados/checador/1/1`
