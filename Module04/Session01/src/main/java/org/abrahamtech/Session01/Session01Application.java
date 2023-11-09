@@ -3,12 +3,19 @@ package org.abrahamtech.Session01;
 import java.util.Scanner;
 
 import org.abrahamtech.Session01.util.Calculator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Session01Application implements CommandLineRunner{
+
+	@Autowired //Dependency injection (Injection of the Beans)
+	private Calculator calculator;
+
+	@Autowired //Dependency injection (Injection of the Beans)
+	private Scanner sc;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Session01Application.class, args);
@@ -36,7 +43,8 @@ public class Session01Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args){
-		Scanner sc = new Scanner(System.in);
+
+		// Scanner sc = new Scanner(System.in);
 
 		System.out.println("***********************");
 		System.out.println("*Select the operation:*");
@@ -67,7 +75,7 @@ public class Session01Application implements CommandLineRunner{
 
 		int result = 0;
 
-		Calculator calculator = new Calculator();
+		// Calculator calculator = new Calculator();
 
 		switch (option) {
 			case 1:
@@ -91,6 +99,7 @@ public class Session01Application implements CommandLineRunner{
 		}
 
 		System.out.println("Result: " + result);
+		sc.close();
 	}
 
 }
