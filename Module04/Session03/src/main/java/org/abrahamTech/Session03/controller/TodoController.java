@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class TodoController {
 
@@ -19,7 +21,7 @@ public class TodoController {
         todos.add(new Todo(1, "Tarea de prueba", "Esto es una tarea de prueba", false));
     }
 
-     // Get all the tasks
+    // Get all the tasks
     // URL: http://localhost:8080/obtenerTodos
     @RequestMapping("/obtenerTodos")
     public List<Todo> getAll() {
@@ -47,7 +49,7 @@ public class TodoController {
 
     // Create a new task
     @RequestMapping("/crearTodo")
-    public Todo create(@RequestBody Todo data) {
+    public Todo create(@Valid @RequestBody Todo data) {
         data.setCompleted(false);
         data.setId(++currentId);
 

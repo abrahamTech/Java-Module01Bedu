@@ -1,9 +1,16 @@
 package org.abrahamTech.Session03.model;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Todo {
     
     private long id;
+    @NotNull
+    @Size(max = 100)
     private String title;
+    @NotNull
+    @Size(max = 2500)
     private String description;
     private boolean completed;
     
