@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
+@Slf4j
 public class ProductController {
     
     @Autowired
@@ -25,6 +27,8 @@ public class ProductController {
 
     @RequestMapping("/crearProducto")
     public ProductDTO save(@Valid @RequestBody CreateProductDTO data) {
+        log.info("Ejecutando guardado de un producto");
+        log.info(data.toString());
         return productService.save(data);
     }
 }
