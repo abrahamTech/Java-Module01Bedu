@@ -3,7 +3,22 @@ package org.abrahamtech.Session04.dto;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+/* @Data es la union de: 
+    - @Getter
+    - @Setter
+    - @ToString
+    - @EqualsAndHashCode <- Llega a tener conflictos con otras librerias, por ejemplo: JPA
+    - @RequiredArgsConstructor
+*/
+
+@Data
 public class CreateProductDTO {
     
     @NotBlank(message = "El nombre del proyecto es obligatorio")
@@ -17,22 +32,4 @@ public class CreateProductDTO {
     @DecimalMin(value = "0.0", message = "El precio debe ser mayor o igual a cero")
     private double price;
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getQuantity() {
-        return quantity;
-    }
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }
