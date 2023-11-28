@@ -26,7 +26,7 @@ public class CreateProductDTO {
 
     // @Min(1)
     @Min(value = 1, message = "La cantidad debe ser mayor a cero")
-    private int quantity;
+    private int stock;
 
     // @DecimalMin("0.0")
     @DecimalMin(value = "0.0", message = "El precio debe ser mayor o igual a cero")
