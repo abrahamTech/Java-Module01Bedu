@@ -4,12 +4,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.abrahamtech.Session04.dto.ErrorDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestControllerAdvice
+@Slf4j
 public class ExceptionAdvice {
     //Este metodo se va a ejecutar cuando se detecten errores de validación
     //es decir, cuando se lancen excepciones de tipo MethodArgumentNotValidException
@@ -22,6 +27,7 @@ public class ExceptionAdvice {
 
     //Extrae los mensaje error de la validacion para que vengan como detalle en el error que creamos
     @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorDTO validationErrors(MethodArgumentNotValidException ex) {
         List<FieldError> fieldErrors = ex.getBindingResult().getFieldErrors();
         List<String> errors = new LinkedList<>();
@@ -33,6 +39,13 @@ public class ExceptionAdvice {
         
         ErrorDTO error = new ErrorDTO("ERR_VALID", "Hubo un error al validar los datos de entrada", errors);
         return error;
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorDTO unknownError(Exception ex) {
+        log.error(ex.getMessage());
+        return new ErrorDTO("ERR_UNKNOWN", "Hubo un error desconocido", null);
     }
 
 }
