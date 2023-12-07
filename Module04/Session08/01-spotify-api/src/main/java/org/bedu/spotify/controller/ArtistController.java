@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
+@Tag(name = "Endpoints de Artistas", description = "CRUD de Artistas")
 @RestController
 @RequestMapping("artists")
 public class ArtistController {
@@ -29,12 +32,14 @@ public class ArtistController {
     @Autowired
     private InterpretationService interpretationService;
 
+    @Operation(summary = "Obtiene la lista de todos los artistas")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<ArtistDTO> findAll() {
         return service.findAll();
     }
 
+    @Operation(summary = "Crea un nuevo artista")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ArtistDTO save(@Valid @RequestBody CreateArtistDTO data) {
@@ -44,6 +49,7 @@ public class ArtistController {
     // Ejemplo: Agregar la canción con id 1 al artista con id 52
     // POST /artists/52/songs
     // body: { songId: 1 }
+    @Operation(summary = "Asocia una canción a un artista")
     @PostMapping("{artistId}/songs")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addSong(@PathVariable long artistId, @RequestBody AddSongDTO data) {
