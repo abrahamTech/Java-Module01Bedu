@@ -5,6 +5,7 @@ import java.util.List;
 import org.bedu.spotify.dto.AddSongDTO;
 import org.bedu.spotify.dto.ArtistDTO;
 import org.bedu.spotify.dto.CreateArtistDTO;
+import org.bedu.spotify.dto.SongDTO;
 import org.bedu.spotify.service.ArtistService;
 import org.bedu.spotify.service.InterpretationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,4 +62,11 @@ public class ArtistController {
 
     // Ejemplo: Quitar la canción con id 1 al artista con id 52
     // DELETE /artists/52/songs/1
+
+    @Operation(summary = "Obtiene las canciones de un artista determinado")
+    @GetMapping("{artistId}/songs")
+    @ResponseStatus(HttpStatus.OK)
+    public List<SongDTO> findSongsByArtist(@PathVariable long artistId) {
+        return interpretationService.findSongsByArtist(artistId);
+    }
 }
