@@ -1,5 +1,7 @@
 package org.abrahamtech.session01B;
 
+import org.abrahamtech.session01B.exception.InvalidSequenceException;
+
 //import java.util.Stack;
 
 public class BalancedParentheses {
@@ -18,13 +20,17 @@ public class BalancedParentheses {
       * (()
       */
     
-    public static boolean isBalanced(String sequence) {
+    public static boolean isBalanced(String sequence) throws InvalidSequenceException {
         //Stack<Character> parentheses = new Stack<>();
         int counter = 0;
 
         for(int i = 0; i < sequence.length(); i++) {
             
             char current = sequence.charAt(i);
+
+            if(current != '(' && current != ')') {
+                throw new InvalidSequenceException();
+            }
 
             if(current == '(') {
                 //parentheses.push(current);
