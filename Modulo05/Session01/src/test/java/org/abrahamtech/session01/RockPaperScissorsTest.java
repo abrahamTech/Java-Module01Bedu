@@ -33,4 +33,34 @@ public class RockPaperScissorsTest {
         assertEquals(result03, GameResult.TIE);
 
     }
+
+    @Test
+    public void playerOneCases() {
+
+        //Act
+        GameResult result01 = RockPaperScissors.play(PlayerInput.ROCK, PlayerInput.SCISSORS);
+        GameResult result02 = RockPaperScissors.play(PlayerInput.PAPER, PlayerInput.ROCK);
+        GameResult result03 = RockPaperScissors.play(PlayerInput.SCISSORS, PlayerInput.PAPER);
+
+        //Assert
+        //Verificar que el resultado sea "PLAYER_ONE_WINS"
+        assertEquals(result01, GameResult.PLAYER_ONE_WINS);
+        assertEquals(result02, GameResult.PLAYER_ONE_WINS);
+        assertEquals(result03, GameResult.PLAYER_ONE_WINS);
+    }
+
+    @Test
+    public void playerTwoCases() {
+        //Act
+        GameResult result01 = RockPaperScissors.play(PlayerInput.ROCK, PlayerInput.PAPER);
+        GameResult result02 = RockPaperScissors.play(PlayerInput.PAPER, PlayerInput.SCISSORS);
+        GameResult result03 = RockPaperScissors.play(PlayerInput.SCISSORS, PlayerInput.ROCK);
+
+        //Assert
+        //Verificar que el resultado sea "PLAYER_TWO_WINS"
+        assertEquals(result01, GameResult.PLAYER_TWO_WINS);
+        assertEquals(result02, GameResult.PLAYER_TWO_WINS);
+        assertEquals(result03, GameResult.PLAYER_TWO_WINS);
+    
+    }
 }
