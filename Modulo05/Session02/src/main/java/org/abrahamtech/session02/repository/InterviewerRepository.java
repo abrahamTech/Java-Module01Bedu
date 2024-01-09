@@ -15,6 +15,10 @@ public class InterviewerRepository {
         data = new LinkedList<>();
     }
 
+    public void clear() {
+        data.clear();
+    }
+
     //Regresa cuantos elementos hay en nuestra persistencia o Base de Datos
     public int count() {
         return data.size();
