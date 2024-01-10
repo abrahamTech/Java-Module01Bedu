@@ -2,6 +2,7 @@ package org.abrahamtech.session02.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
@@ -81,6 +82,22 @@ public class InterviewerRepositoryTest {
         assertTrue(result.isPresent());
         assertNotNull(interviewer);
         assertEquals(name, interviewer.getName());
+
+    }
+
+    @Test
+    @DisplayName("Repository shouldn't find an interviewer")
+    public void dontFindInterviewer() {
+        //Arrange: No debe de existir el correo que se busca en el repositorio
+        String email2 = "user@gmail.com";
+
+        // repository.save(name, email);
+
+        //Act:
+        Optional<Interviewer> result = repository.findEmail(email2);
+
+        //Assert:
+        assertTrue(result.isEmpty());
 
     }
 }
