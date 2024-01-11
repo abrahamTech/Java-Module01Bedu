@@ -38,4 +38,16 @@ public class AccountRepositoryTest {
 
         Assert.assertFalse(result.isPresent());
     }
+
+    @Test(description = "Repository should return an account result if the account exists")
+    public void existingAccount() {
+        List<Account> hardcoded = new LinkedList<>();
+        hardcoded.add(new Account(1000, 20.50));
+        repository = new AccountRepository(hardcoded);
+        Optional<Account> result = repository.findById(1000);
+        Assert.assertTrue(result.isPresent());
+        Account account = result.get();
+        Assert.assertEquals(account.getId(), 1000);
+        Assert.assertEquals(account.getAmount(), 20.50);
+    }
 }
