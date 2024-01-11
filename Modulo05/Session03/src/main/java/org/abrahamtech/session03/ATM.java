@@ -8,9 +8,12 @@ import org.abrahamtech.session03.model.Account;
 import org.abrahamtech.session03.model.Card;
 import org.abrahamtech.session03.repository.AccountRepository;
 
+import lombok.Getter;
+
 public class ATM {
 
     //Atributo 1: Tarjeta
+    @Getter
     private Card card;
 
     private Account account;
@@ -18,6 +21,11 @@ public class ATM {
 
     public ATM() {
         repository = new AccountRepository();
+    }
+
+    //Recibe como parametro el repositorio para el
+    public ATM(AccountRepository repository) {
+        this.repository = repository;
     }
 
     //Se inserta tarjeta al cajero
