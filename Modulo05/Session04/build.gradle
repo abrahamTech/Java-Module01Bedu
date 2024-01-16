@@ -21,6 +21,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
     testImplementation 'org.testng:testng:7.9.0'
     testImplementation 'io.cucumber:cucumber-java:7.12.1'
+    testImplementation 'io.cucumber:cucumber-picocontainer:7.15.0'
     testCompileOnly 'org.projectlombok:lombok:1.18.30'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 }

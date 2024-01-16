@@ -32,7 +32,7 @@ Feature: Validate card PIN
         And enters the PIN "1234"
         Then the ATM should give access to the user
     
-    Scenario: Correct PIN
+    Scenario: User enters a wrong PIN
         Given a debit card with PIN "0000" and associated to the account 78957645
         When the user inserts the card
         And enters the PIN "6579"
