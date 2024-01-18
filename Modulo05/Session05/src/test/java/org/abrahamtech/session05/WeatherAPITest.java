@@ -1,6 +1,8 @@
 package org.abrahamtech.session05;
 
 import org.abrahamtech.session05.model.CurrentWeather;
+import org.abrahamtech.session05.model.Temperature;
+import org.abrahamtech.session05.model.ThermalSensation;
 import org.abrahamtech.session05.model.Weather;
 import org.abrahamtech.session05.util.Axios;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -51,10 +54,10 @@ public class WeatherAPITest {
         when(axiosMock.request(anyString(), any())).thenReturn(weather);
 
         // [ACT] ----------------------------------------------
-        double temperature = weatherAPI.getCurrentWeather(LATITUDE, LONGITUDE);
+        Temperature result = weatherAPI.getCurrentWeather(LATITUDE, LONGITUDE);
 
         // [ASSERT] ----------------------------------------------
-        assertEquals(TEMPERATURE, temperature);
+        assertEquals(TEMPERATURE, result.getTemperature());
     }
 
     @Test
@@ -62,11 +65,12 @@ public class WeatherAPITest {
     public void apiError() throws Exception {
         // [ARRANGE] ----------------------------------------------
         when(axiosMock.request(anyString(), any())).thenThrow(Exception.class);
-
+        
         // [ACT] ----------------------------------------------
-        double temperature = weatherAPI.getCurrentWeather(LATITUDE, LONGITUDE);
+        Temperature result = weatherAPI.getCurrentWeather(LATITUDE, LONGITUDE);
 
         // [ASSERT] ----------------------------------------------
-        assertEquals(-1, temperature);
+        assertNull(result);
     }
+    
 }
