@@ -9,7 +9,9 @@ import java.net.http.HttpResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Axios {
+    // Un método genérico, es decir, va a regresar algo de tipo "T"
     public <T> T request(String url, Class<T> clazz) throws Exception {
+        // Objeto que ayudará a convertir un String (JSON) en un objeto de Java
         ObjectMapper mapper = new ObjectMapper();
 
         // Objeto que va a permitir realizar la petición
