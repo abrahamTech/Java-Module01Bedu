@@ -2,8 +2,13 @@ package org.abrahamtech.session06b;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.stream.Stream;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class BinarySearchTest {
     
@@ -50,5 +55,24 @@ public class BinarySearchTest {
         assertEquals(1, index);
         assertEquals(2, index2);
     }
+
+    @ParameterizedTest
+    @MethodSource("mediumArrayNumberParamPreconditions")
+    @DisplayName("An odd array the element is in the middle with ParametrizedTest")
+    public void mediumArrayNumberParam(int [] array, int number, int expectedIndex) {
+
+        int index = BinarySearch.search(array, number);
+      
+        assertEquals(expectedIndex, index);
+    }
+
+    static Stream<Arguments> mediumArrayNumberParamPreconditions() {
+        return Stream.of(
+           Arguments.of(new int[] {100, 200, 300}, 200, 1),
+           Arguments.of(new int[] {100, 200, 300, 400, 500}, 300, 2),
+           Arguments.of(new int[] {100, 200, 300, 400, 500, 600, 700}, 400, 3)
+        );
+    }
+
 
 }
