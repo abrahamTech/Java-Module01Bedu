@@ -17,6 +17,10 @@ public class BinarySearch {
         if(array.length % 2 == 1 && array[index] == number) {
             return index;
         }
+
+        if (array.length % 2 == 0 && array[index - 1] == number){
+            return index - 1;
+        }
  
         return -1;
     }

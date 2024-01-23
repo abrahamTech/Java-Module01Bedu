@@ -74,5 +74,14 @@ public class BinarySearchTest {
         );
     }
 
+    @Test
+    @DisplayName("Element is exactly in the middle of an odd array")
+    public void pairNumber() {
+      int[] array = { 100, 200, 300, 400 };
+  
+      int index = BinarySearch.search(array, 200);
+      
+      assertEquals(1, index);
+    }
 
 }
