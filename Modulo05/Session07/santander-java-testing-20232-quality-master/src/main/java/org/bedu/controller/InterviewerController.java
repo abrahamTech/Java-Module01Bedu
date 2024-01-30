@@ -17,9 +17,13 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("interviewers")
 public class InterviewerController {
-  
-  @Autowired
+
   private InterviewerService service;
+
+  @Autowired
+  public InterviewerController(InterviewerService service) {
+    this.service = service;
+  }
 
   @GetMapping
   public List<InterviewerDTO> findAll() {
